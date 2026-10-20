@@ -10,7 +10,7 @@ export const SITE_URL = "https://ramsdev.example.com";
 
 // GANTI: kontak yang tampil di bagian "Bangun bersama Rams Dev."
 export const CONTACT = {
-  email: "info@rams.biz.dev", // GANTI
+  email: "info@rams.biz.web",
   whatsapp: "0823-2598-0067", // GANTI: format tampilan
   whatsappLink: "https://wa.me/6282325980067", // GANTI: hanya angka, diawali 62
 };
