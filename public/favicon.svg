@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#04060A"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#1C2330" stroke-width="2"/>
+  <circle cx="50" cy="14" r="4" fill="#3FC8E8"/>
+  <circle cx="50" cy="26" r="4" fill="#E0489A"/>
+  <circle cx="50" cy="38" r="4" fill="#F2C94C"/>
+  <text x="6" y="46" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="25" letter-spacing="-1" fill="#ECEFF4">RD</text>
+</svg>
