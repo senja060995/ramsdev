@@ -34,6 +34,17 @@ npm start        # menjalankan `npx serve out` di http://localhost:3000
 
 ## Deploy
 
+### Production: sihub-2 / Cloudflare Tunnel
+
+- Domain: `https://rams.biz.id`; email kontak: `info@rams.biz.id`.
+- Build: `npm ci` lalu `npm run build -- --webpack`.
+- Unggah isi `out/` ke release baru di `/var/www/rams.biz.id/releases/`, lalu arahkan symlink `/var/www/rams.biz.id/current` ke release tersebut.
+- Nginx menggunakan konfigurasi `deploy/nginx-rams.biz.id.conf`, mendengarkan hanya di `127.0.0.1:8088`.
+- Pada Cloudflare Tunnel yang berjalan di `sihub-2` (`cloudflared-nstiket.service`), tambahkan published application route untuk `rams.biz.id` dengan service **HTTP → `127.0.0.1:8088`**. HTTPS ditangani oleh Cloudflare.
+- Pastikan record DNS hostname menunjuk ke tunnel tersebut; hapus atau ganti record lama yang konflik. Nonaktifkan redirect lama ke `siconnect.tech` untuk hostname ini jika ada.
+- Verifikasi lokal: `curl -I -H 'Host: rams.biz.id' http://127.0.0.1:8088/id/`. Verifikasi publik: `curl -I https://rams.biz.id/id/`.
+- Rollback: arahkan symlink `current` ke release sebelumnya. Untuk perubahan konfigurasi, jalankan `sudo nginx -t` sebelum `sudo systemctl reload nginx`.
+
 ### Vercel
 1. Push proyek ini ke GitHub/GitLab.
 2. Di vercel.com pilih **Add New → Project**, lalu impor repositori.

@@ -5,12 +5,12 @@ import type { ProductId } from "./types";
    Data ini dipakai oleh versi ID (content/id.ts) dan EN (content/en.ts).
    ========================================================================== */
 
-// GANTI: domain final situs (dipakai untuk SEO, Open Graph, sitemap.xml)
-export const SITE_URL = "https://ramsdev.example.com";
+// Domain situs untuk SEO, Open Graph, dan sitemap.xml.
+export const SITE_URL = "https://rams.biz.id";
 
 // GANTI: kontak yang tampil di bagian "Bangun bersama Rams Dev."
 export const CONTACT = {
-  email: "info@rams.biz.web",
+  email: "info@rams.biz.id",
   whatsapp: "0823-2598-0067", // GANTI: format tampilan
   whatsappLink: "https://wa.me/6282325980067", // GANTI: hanya angka, diawali 62
 };
