@@ -17,7 +17,7 @@ export const CONTACT = {
 
 // GANTI: tautan sosial media (hapus baris yang tidak dipakai)
 export const SOCIALS: { label: string; href: string }[] = [
-  { label: "GitHub", href: "https://github.com/username" }, // GANTI
+  { label: "GitHub", href: "https://github.com/senja060995" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/username" }, // GANTI
   { label: "Instagram", href: "https://www.instagram.com/username" }, // GANTI
 ];
