@@ -40,8 +40,8 @@ npm start        # menjalankan `npx serve out` di http://localhost:3000
 - Build: `npm ci` lalu `npm run build -- --webpack`.
 - Unggah isi `out/` ke release baru di `/var/www/rams.biz.id/releases/`, lalu arahkan symlink `/var/www/rams.biz.id/current` ke release tersebut.
 - Nginx menggunakan konfigurasi `deploy/nginx-rams.biz.id.conf`, mendengarkan hanya di `127.0.0.1:8088`.
-- Tunnel khusus: `rams-sihub2` (`57f12fec-7e0e-44ff-ba22-06c8e7ae7302`), service server `cloudflared-rams.service`. Unit tersedia di `deploy/cloudflared-rams.service`; token connector disimpan hanya di server sebagai `/etc/cloudflared/rams.token` (root, mode 600), tidak dimasukkan ke Git. Konfigurasi hostname publik: `rams.biz.id` → **HTTP → `127.0.0.1:8088`**. HTTPS ditangani oleh Cloudflare. Aktivasi connector dan hostname harus selesai sebelum domain dapat diakses publik.
-- Pastikan record DNS hostname menunjuk ke tunnel tersebut; hapus atau ganti record lama yang konflik. Nonaktifkan redirect lama ke `siconnect.tech` untuk hostname ini jika ada.
+- Tunnel khusus: `rams-sihub2` (`57f12fec-7e0e-44ff-ba22-06c8e7ae7302`), service server `cloudflared-rams.service`. Unit tersedia di `deploy/cloudflared-rams.service`; token connector disimpan hanya di server sebagai `/etc/cloudflared/rams.token` (root, mode 600), tidak dimasukkan ke Git. Konfigurasi hostname publik: `rams.biz.id` → **HTTP → `127.0.0.1:8088`**. HTTPS ditangani oleh Cloudflare. Connector dan route domain sudah aktif di `sihub-2`. DNS CNAME apex menunjuk ke `57f12fec-7e0e-44ff-ba22-06c8e7ae7302.cfargotunnel.com` dengan proxy Cloudflare aktif.
+- Saat redeploy, pertahankan target DNS dan route tunnel ini; cukup unggah release baru dan ganti symlink `current`.
 - Verifikasi lokal: `curl -I -H 'Host: rams.biz.id' http://127.0.0.1:8088/id/`. Verifikasi publik: `curl -I https://rams.biz.id/id/`.
 - Rollback: arahkan symlink `current` ke release sebelumnya. Untuk perubahan konfigurasi, jalankan `sudo nginx -t` sebelum `sudo systemctl reload nginx`.
 
